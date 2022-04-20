@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1650462877 source:d:\000 00 educ\ecm\ecm 4 сем\Раскраска\graph-coloring\graph-coloring\gc_source.cpp
+	"gc_header.h"
+
+1650462849 d:\000 00 educ\ecm\ecm 4 сем\Раскраска\graph-coloring\graph-coloring\gc_header.h
+	<iostream>
+	<vector>
+
+1650462889 source:d:\000 00 educ\ecm\ecm 4 сем\Раскраска\graph-coloring\main.cpp
+	"gc_header.h"
+
+1650462849 d:\000 00 educ\ecm\ecm 4 сем\Раскраска\graph-coloring\gc_header.h
+	<iostream>
+	<vector>
+
