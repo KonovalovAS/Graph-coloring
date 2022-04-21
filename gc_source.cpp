@@ -28,6 +28,7 @@ void Problem::Solve(){
 
         while( cur < num_vertices ){
 
+        //cout<<"Current vertex: "<<cur<<"\n";
             partial_dye( cur );
 
             num_colors++;
@@ -51,22 +52,32 @@ int Problem::next_undyed(int start){
 
 void Problem::partial_dye( int v ){
 
+    //cout << "\tIn partial dye\n";
     colors[v] = num_colors;
 
-    queue<int> candidates = find_candidates(v);
+    queue<int> candidates;
+    find_candidates(v,candidates);
+
+    //cout<<"\tBack in partial dye, gonna dye candidates\n";
     dye_candidates( candidates );
 }
 
-queue<int> &Problem::find_candidates( int v ){
-    queue<int> cands;
-    for(int j=0; j<num_vertices; j++)
-        if( colors[j]<0 && v!=j && !adjm[v][j] )
+void Problem::find_candidates( int v, queue<int> &cands ){
+
+    //cout<<"\t\tLooking for candidates\n";
+    for(int j=0; j<num_vertices; j++){
+            //cout<<"\t\t"<<j<<"\n";
+        if( v!=j && colors[j]<0 && !adjm[v][j] ){
             cands.push(j);
-    return cands;
+            //cout<<"\t\t\tpushing "<<j<<"\n";
+        }
+    }
+    //cout<<"\t\tall found\n";
 }
 
 void Problem::dye_candidates( queue<int> &candidates ){
 
+    //cout<<"\t\t\tDying candidates\n";
     vector<int> others;
 
     while( !candidates.empty() ){

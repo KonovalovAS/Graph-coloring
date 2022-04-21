@@ -26,7 +26,7 @@ private:
 
     int next_undyed(int start);
     void partial_dye( int v );
-    queue<int> &find_candidates( int v );
+    void find_candidates( int v, queue<int> &cands );
     void dye_candidates( queue<int> &candidates );
     bool not_adjacent_to_others( int v, vector<int> &others );
 };
