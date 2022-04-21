@@ -1,8 +1,15 @@
 #include <iostream>
 #include <vector>
 #include <queue>
+#include <fstream>
 
 using namespace std;
+
+void solve_4_console_input();
+
+int solve_4_file_input( string &fname );
+
+void run_tests_console( string &fname );
 
 class Problem{
 public:

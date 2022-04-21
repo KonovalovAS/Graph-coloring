@@ -6,14 +6,15 @@
 	<iostream>
 	<vector>
 
-1650555566 source:d:\000 00 educ\ecm\ecm 4 сем\Раскраска\graph-coloring\main.cpp
+1650561187 source:d:\000 00 educ\ecm\ecm 4 сем\Раскраска\graph-coloring\main.cpp
 	"gc_header.h"
 
-1650556420 d:\000 00 educ\ecm\ecm 4 сем\Раскраска\graph-coloring\gc_header.h
+1650558864 d:\000 00 educ\ecm\ecm 4 сем\Раскраска\graph-coloring\gc_header.h
 	<iostream>
 	<vector>
 	<queue>
+	<fstream>
 
-1650555219 source:d:\000 00 educ\ecm\ecm 4 сем\Раскраска\graph-coloring\gc_source.cpp
+1650560780 source:d:\000 00 educ\ecm\ecm 4 сем\Раскраска\graph-coloring\gc_source.cpp
 	"gc_header.h"
 

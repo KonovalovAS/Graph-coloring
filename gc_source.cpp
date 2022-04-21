@@ -99,3 +99,75 @@ bool Problem::not_adjacent_to_others( int v, vector<int> &others ){
         ans = ans && !adjm[v][others[i]];
     return ans;
 }
+
+// Auxiliary functions
+
+void solve_4_console_input(){
+    int n_v, n_e;
+    cin >> n_v >> n_e;
+
+    vector<vector<bool>> adjmat(n_v,vector<bool> (n_v,false));
+    for( int i=0; i<n_e; i++ ){
+        int v_first, v_second;
+        cin >> v_first >> v_second;
+        adjmat[v_first][v_second] = true;
+        adjmat[v_second][v_first] = true;
+    }
+
+    Problem my_problem( n_v, n_e, adjmat );
+    my_problem.Solve();
+    cout << my_problem.Number_of_colors() << "\n";
+    my_problem.show_colors();
+}
+//
+
+int solve_4_file_input( string &fname ){
+    ifstream input( fname );
+    int n_v, n_e;
+    input >> n_v >> n_e;
+
+    vector<vector<bool>> adjmat(n_v,vector<bool> (n_v,false));
+    for( int i=0; i<n_e; i++ ){
+        int v_first, v_second;
+        input >> v_first >> v_second;
+        adjmat[v_first][v_second] = true;
+        adjmat[v_second][v_first] = true;
+    }
+    input.close();
+
+    Problem my_problem( n_v, n_e, adjmat );
+    my_problem.Solve();
+    //cout << my_problem.Number_of_colors() << "\n";
+    //my_problem.show_colors();
+    return my_problem.Number_of_colors();
+}
+
+void run_tests_console( string &fname ){
+    ofstream OUT ( fname );
+
+    int good(0),all(0);
+    string name;
+    int gv;
+    cin >> name >> gv;
+    while( name != "end" ){
+        all++;
+
+        name = "gc_" + name;
+        int myres = solve_4_file_input( name );
+        double dif = (double)(myres-gv)/gv;
+        dif *= 100;
+        OUT << name << "\t" << dif << "%\tgolden value: "
+            << gv << "\tme: " << myres << "\n";
+        cout << name << "\t" << dif << "%\tgolden value: "
+             << gv << "\tme: " << myres << "\n";
+
+        if(dif<=20 && dif>=-20)
+            good++;
+
+        cin >> name >> gv;
+    }
+    OUT << good << " out of " << all << " passed!";
+    cout << good << " out of " << all << " passed!";
+
+    OUT.close();
+}
