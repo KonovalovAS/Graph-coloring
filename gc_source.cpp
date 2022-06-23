@@ -152,7 +152,7 @@ void run_tests_console( string &fname ){
     while( name != "end" ){
         all++;
 
-        name = "gc_" + name;
+        name = "tests/gc_" + name;
         int myres = solve_4_file_input( name );
         double dif = (double)(myres-gv)/gv;
         dif *= 100;
